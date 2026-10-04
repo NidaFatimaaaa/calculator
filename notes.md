@@ -7,7 +7,7 @@ HTML = HyperText Markup Language.
 HTML is used to create the structure/content of a webpage.
 
 ### Basic HTML structure
-
+```
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@ HTML is used to create the structure/content of a webpage.
     ...
 </body>
 </html>
-
+```
 ### Important parts
 
 <!DOCTYPE html>
@@ -36,12 +36,11 @@ Contains the content that appears on the webpage.
 <title>
 Sets the title shown in the browser tab.
 
-
 ## 2. Connecting CSS
 
-We created a separate file:
+created a separate file:
 
-style.css
+'style.css'
 
 We connect it to HTML using:
 
@@ -49,7 +48,6 @@ We connect it to HTML using:
 
 This tells the browser to use the CSS rules from style.css
 to style the HTML page.
-
 
 ## 3. div
 
@@ -70,7 +68,6 @@ We can use that class in CSS:
 }
 
 The dot (.) means we are selecting a class.
-
 
 ## 4. Input
 
@@ -93,7 +90,6 @@ Prevents the user from typing directly into the display.
 
 The calculator buttons will eventually control this display.
 
-
 ## 5. Project structure
 
 Our calculator will contain:
@@ -112,7 +108,7 @@ notes.md
 
 ## 6. Another div — buttons container
 
-We created:
+Created:
 
 <div class="buttons">
 </div>
@@ -121,8 +117,7 @@ This is another container.
 
 Its purpose is to group all the calculator buttons together.
 
-We can later use the .buttons class in CSS to control
-how the buttons are arranged on the calculator.
+We can later use the .buttons class in CSS to control how the buttons are arranged on the calculator.
 
 ## 7. Button
 
@@ -136,19 +131,19 @@ The text between the opening and closing button tags
 is displayed on the button.
 
 Right now our buttons are only HTML elements.
-JavaScript will later give them functionality.
+JavaScript will give them functionality.
 
 ## 8. CSS Grid
 
 CSS can control how HTML elements are arranged.
 
 We used:
-
+```
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
-
+```
 display: grid;
 Turns the container into a grid layout.
 
@@ -165,7 +160,6 @@ Creates 4 equal columns.
 gap controls the space between items in a CSS Grid or Flexbox layout.
 
 Example:
-
 gap: 10px;
 
 This creates 10 pixels of space between the buttons.
@@ -178,23 +172,20 @@ We can select the calculator container using:
     ...
 }
 
-width: 300px;
-Sets the width of the calculator.
+width: Sets the width of the calculator.
 
-padding: 20px;
-Creates space inside the calculator, between its content and its border.
+padding: Creates space inside the calculator, between its content and its border.
 
-border: 1px solid black;
-Adds a 1-pixel solid black border around the calculator.
+border: Adds a 1-pixel solid black border around the calculator.
 
 The CSS structure is:
-
+```
 .calculator {
     width: 300px;
     padding: 20px;
     border: 1px solid black;
 }
-
+```
 ## 11. Styling an element using an ID
 
 We can select an HTML element by its ID using #.
@@ -209,9 +200,9 @@ CSS:
     ...
 }
 
-The # symbol means we are selecting an ID.
+The ' # ' symbol means we are selecting an ID.
 
-### Useful CSS properties
+### CSS properties
 
 width: 100%;
 Makes the element use the available width.
@@ -251,7 +242,6 @@ the button, indicating that it can be clicked.
 ## 13. Centering an element with margin
 
 We can use:
-
 margin: 50px auto;
 
 50px:
@@ -261,18 +251,15 @@ auto:
 Automatically distributes the left and right margin,
 which centers the element horizontally.
 
-When an element has a fixed width, using:
+When an element has a fixed width,
 
-margin: 50px auto;
-
-is a common way to center it horizontally.
+margin: 50px auto;  is a common way to center it horizontally.
 
 ## 14. Making buttons fill their grid cells
 
 We can use:
 
 width: 100%;
-
 This tells the button to use 100% of the available width
 inside its grid cell.
 
@@ -321,9 +308,7 @@ that an element is interactive.
 ## 18. Background color
 
 We can use:
-
 background-color: #f2f2f2;
-
 background-color changes the background color of an element.
 
 #f2f2f2 is a hexadecimal color code representing
@@ -396,9 +381,9 @@ script.js
 ## 23. Connecting JavaScript
 
 We connect JavaScript to HTML using:
-
+```
 <script src="script.js"></script>
-
+```
 src means "source".
 
 It tells the browser where the JavaScript file is located.
@@ -417,9 +402,9 @@ script.js
 ## 24. JavaScript — Finding an HTML element
 
 We wrote:
-
+```
 let display = document.getElementById("display");
-
+```
 document
 → Represents the webpage.
 
@@ -479,11 +464,11 @@ to JavaScript functionality.
 ## 28. JavaScript functions
 
 We created:
-
+```
 function addToDisplay(value) {
     display.value += value;
 }
-
+```
 function
 → Creates a reusable block of JavaScript code.
 
@@ -513,11 +498,11 @@ Click 7 → 777
 Each calculator number button can call the same function.
 
 Example:
-
+```
 <button onclick="addToDisplay('8')">8</button>
 
 <button onclick="addToDisplay('9')">9</button>
-
+```
 The function is the same:
 
 addToDisplay()
@@ -548,11 +533,11 @@ Example:
 ## 31. Clearing the display
 
 We created:
-
+```
 function clearDisplay() {
     display.value = "";
 }
-
+```
 This function clears everything from the calculator display.
 
 "" is an empty string, meaning there is no text/value.
@@ -585,11 +570,11 @@ We will create the calculate() function next.
 ## 33. Creating the calculate() function
 
 We created:
-
+```
 function calculate() {
     display.value = eval(display.value);
 }
-
+```
 display.value
 → Contains the expression currently shown in the calculator.
 
@@ -621,9 +606,6 @@ We tested the calculator using:
 
 Testing different inputs helps us verify that the
 calculator logic is working correctly.
-
-We can also test more complex expressions to understand
-how JavaScript evaluates mathematical operations.
 
 ## 35. Testing decimal calculations
 
@@ -666,7 +648,7 @@ if (result === Infinity || result === -Infinity) {
 } else {
     display.value = result;
 }
-
+```
 ## 38. Checking for an empty calculation
 
 We used an if...else statement to check whether
@@ -677,6 +659,7 @@ if (display.value === "") {
     display.value = "Enter a calculation";
 }
 
+```
 ## 39. try...catch
 
 JavaScript provides try...catch for handling errors.
@@ -687,12 +670,12 @@ try {
 } catch {
     // code to run if an error happens
 }
-
+```
 ## 40. Using try...catch in the calculator
 
 We used try...catch around eval().
 
-''javascript
+```javascript
 try {
     let result = eval(display.value);
     
@@ -700,7 +683,7 @@ try {
 } catch {
     display.value = "Error";
 }
-
+```
 ## 41. Improving the calculator design
 
 We customized the calculator using CSS.
@@ -733,3 +716,5 @@ We added a Backspace button:
 
 ```html
 <button onclick="backspace()">←</button>
+```
+THE END!
